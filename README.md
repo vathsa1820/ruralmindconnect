@@ -3,7 +3,7 @@ HealthCare 🌱
 A modern web application for finding healthcare specialists in rural areas with location-based search and user authentication.
 
 🚀 Live Demo
-View Live Site →
+View Live Site → http://www.ruralmindconnect.com/
 
 ✨ Features
 🔍 Smart Specialist Discovery
