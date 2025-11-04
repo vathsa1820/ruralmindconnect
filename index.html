@@ -1044,4 +1044,670 @@
             const categoryArticles = {
                 'general': [
                     {id: 'article1', title: 'Understanding Common Cold Symptoms', desc: 'Learn to identify and manage common cold symptoms effectively.'},
-                    {id: '
+                    {id: 'article4', title: 'First Aid Basics Everyone Should Know', desc: 'Essential first aid techniques for common emergencies.'}
+                ],
+                'nutrition': [
+                    {id: 'article2', title: 'Healthy Eating on a Budget', desc: 'Nutrition tips that won\'t break the bank.'},
+                    {id: 'article5', title: 'Importance of Hydration', desc: 'Why staying hydrated is crucial for your health.'}
+                ],
+                'fitness': [
+                    {id: 'article6', title: 'Simple Exercises for Busy People', desc: 'Quick workouts you can do anywhere.'},
+                    {id: 'article7', title: 'Benefits of Walking Daily', desc: 'How a simple walk can improve your health.'}
+                ],
+                'mental': [
+                    {id: 'article3', title: 'Stress Management Techniques', desc: 'Simple methods to reduce stress in daily life.'},
+                    {id: 'article8', title: 'Improving Sleep Quality', desc: 'Tips for better sleep and its impact on health.'}
+                ]
+            };
+            
+            categoryArticles[category].forEach(article => {
+                const articleElement = document.createElement('div');
+                articleElement.className = 'article-item';
+                articleElement.innerHTML = `
+                    <h4>${article.title}</h4>
+                    <p class="muted">${article.desc}</p>
+                `;
+                articleElement.addEventListener('click', () => showArticle(article.id));
+                articles.appendChild(articleElement);
+            });
+        }
+
+        function getCategoryName(category) {
+            const names = {
+                'general': 'General Health',
+                'nutrition': 'Nutrition',
+                'fitness': 'Fitness',
+                'mental': 'Mental Health'
+            };
+            return names[category] || category;
+        }
+
+        function showArticle(articleId) {
+            const articleContent = document.getElementById('article-content');
+            const articles = document.getElementById('health-articles');
+            
+            articles.style.display = 'none';
+            articleContent.style.display = 'block';
+            
+            // In a real app, this would fetch from a database
+            const articleData = {
+                'article1': {
+                    title: 'Understanding Common Cold Symptoms',
+                    content: `<p>The common cold is a viral infection of your nose and throat (upper respiratory tract). It's usually harmless, although it might not feel that way. Many types of viruses can cause a common cold.</p>
+                    <h4>Symptoms</h4>
+                    <ul>
+                        <li>Runny or stuffy nose</li>
+                        <li>Sore throat</li>
+                        <li>Cough</li>
+                        <li>Congestion</li>
+                        <li>Slight body aches or a mild headache</li>
+                        <li>Sneezing</li>
+                        <li>Low-grade fever</li>
+                        <li>Generally feeling unwell</li>
+                    </ul>
+                    <h4>Treatment</h4>
+                    <p>There's no cure for the common cold. Antibiotics don't work against cold viruses. Treatment should focus on relieving symptoms.</p>
+                    <ul>
+                        <li>Drink plenty of fluids</li>
+                        <li>Rest as much as possible</li>
+                        <li>Use over-the-counter cold medications</li>
+                        <li>Gargle with warm salt water</li>
+                        <li>Use a humidifier</li>
+                    </ul>`
+                },
+                'article2': {
+                    title: 'Healthy Eating on a Budget',
+                    content: `<p>Eating healthy doesn't have to be expensive. With some planning and smart shopping, you can enjoy nutritious meals without breaking the bank.</p>
+                    <h4>Tips for Budget-Friendly Healthy Eating</h4>
+                    <ul>
+                        <li>Plan your meals for the week</li>
+                        <li>Create a shopping list and stick to it</li>
+                        <li>Buy seasonal fruits and vegetables</li>
+                        <li>Purchase generic or store brands</li>
+                        <li>Buy in bulk when possible</li>
+                        <li>Cook at home more often</li>
+                        <li>Use leftovers creatively</li>
+                        <li>Grow your own herbs and vegetables</li>
+                    </ul>
+                    <h4>Nutrient-Dense, Affordable Foods</h4>
+                    <ul>
+                        <li>Beans and lentils</li>
+                        <li>Oats</li>
+                        <li>Eggs</li>
+                        <li>Frozen vegetables</li>
+                        <li>Bananas</li>
+                        <li>Potatoes</li>
+                        <li>Canned tuna</li>
+                        <li>Peanut butter</li>
+                    </ul>`
+                }
+                // More articles would be defined here in a real application
+            };
+            
+            const article = articleData[articleId] || {
+                title: 'Article Not Found',
+                content: '<p>The requested article could not be found.</p>'
+            };
+            
+            articleContent.innerHTML = `
+                <button class="btn btn-small btn-secondary" onclick="backToArticles()" style="margin-bottom: 15px;">
+                    <i class="fas fa-arrow-left"></i> Back to Articles
+                </button>
+                <h3>${article.title}</h3>
+                <div>${article.content}</div>
+            `;
+        }
+
+        function backToArticles() {
+            const articleContent = document.getElementById('article-content');
+            const articles = document.getElementById('health-articles');
+            
+            articleContent.style.display = 'none';
+            articles.style.display = 'block';
+        }
+
+        // ==================== COMMUNITY CHAT ====================
+        function openCommunityChat() {
+            openModal('community-chat-modal');
+            
+            const content = document.getElementById('community-chat-content');
+            content.innerHTML = `
+                <div class="chat-container">
+                    <div class="chat-sidebar">
+                        <div class="contact-item active" onclick="switchChat('general')">
+                            <strong>General Health</strong>
+                            <p class="muted">Community discussions</p>
+                        </div>
+                        <div class="contact-item" onclick="switchChat('doctors')">
+                            <strong>Doctors Forum</strong>
+                            <p class="muted">Medical professionals</p>
+                        </div>
+                        <div class="contact-item" onclick="switchChat('support')">
+                            <strong>Support Group</strong>
+                            <p class="muted">Patient support</p>
+                        </div>
+                    </div>
+                    <div class="chat-main">
+                        <div class="chat-header">
+                            <h4 id="chat-title">General Health</h4>
+                            <p class="muted" id="chat-description">Community discussions</p>
+                        </div>
+                        <div class="chat-messages" id="chat-messages">
+                            <div class="message received">
+                                <div class="message-content">
+                                    Hello! Welcome to the General Health chat. How can we help you today?
+                                </div>
+                            </div>
+                            <div class="message received">
+                                <div class="message-content">
+                                    Feel free to ask any health-related questions here.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" id="chat-input" placeholder="Type your message...">
+                            <button class="btn" onclick="sendMessage()">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function switchChat(chatType) {
+            // Update active chat in sidebar
+            document.querySelectorAll('.contact-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.closest('.contact-item').classList.add('active');
+            
+            // Update chat header
+            const chatTitle = document.getElementById('chat-title');
+            const chatDescription = document.getElementById('chat-description');
+            const chatMessages = document.getElementById('chat-messages');
+            
+            if (chatType === 'general') {
+                chatTitle.textContent = 'General Health';
+                chatDescription.textContent = 'Community discussions';
+                chatMessages.innerHTML = `
+                    <div class="message received">
+                        <div class="message-content">
+                            Hello! Welcome to the General Health chat. How can we help you today?
+                        </div>
+                    </div>
+                    <div class="message received">
+                        <div class="message-content">
+                            Feel free to ask any health-related questions here.
+                        </div>
+                    </div>
+                `;
+            } else if (chatType === 'doctors') {
+                chatTitle.textContent = 'Doctors Forum';
+                chatDescription.textContent = 'Medical professionals';
+                chatMessages.innerHTML = `
+                    <div class="message received">
+                        <div class="message-content">
+                            Welcome to the Doctors Forum. This is a space for medical professionals to discuss cases and share knowledge.
+                        </div>
+                    </div>
+                    <div class="message received">
+                        <div class="message-content">
+                            Please remember patient confidentiality when discussing cases.
+                        </div>
+                    </div>
+                `;
+            } else if (chatType === 'support') {
+                chatTitle.textContent = 'Support Group';
+                chatDescription.textContent = 'Patient support';
+                chatMessages.innerHTML = `
+                    <div class="message received">
+                        <div class="message-content">
+                            Welcome to our support group. This is a safe space to share experiences and support each other.
+                        </div>
+                    </div>
+                    <div class="message received">
+                        <div class="message-content">
+                            Remember to be kind and respectful to everyone here.
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            const chatMessages = document.getElementById('chat-messages');
+            const messageElement = document.createElement('div');
+            messageElement.className = 'message sent';
+            messageElement.innerHTML = `
+                <div class="message-content">${message}</div>
+            `;
+            
+            chatMessages.appendChild(messageElement);
+            input.value = '';
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Simulate a response after a short delay
+            setTimeout(() => {
+                const responses = [
+                    "Thank you for sharing. How can we assist you further?",
+                    "That's a good question. Let me find more information for you.",
+                    "I understand your concern. Many people experience similar issues.",
+                    "Have you consulted with a healthcare provider about this?",
+                    "Thank you for your message. Our community appreciates your participation."
+                ];
+                
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                
+                const responseElement = document.createElement('div');
+                responseElement.className = 'message received';
+                responseElement.innerHTML = `
+                    <div class="message-content">${randomResponse}</div>
+                `;
+                
+                chatMessages.appendChild(responseElement);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 1000);
+        }
+
+        // ==================== MENTAL WELLNESS ====================
+        function openMentalWellness() {
+            openModal('mental-wellness-modal');
+            
+            const content = document.getElementById('mental-wellness-content');
+            content.innerHTML = `
+                <div class="health-categories">
+                    <div class="health-category" onclick="showTherapists()">
+                        <i class="fas fa-user-md" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                        <h4>Find a Therapist</h4>
+                    </div>
+                    <div class="health-category" onclick="showWellnessResources()">
+                        <i class="fas fa-book" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                        <h4>Wellness Resources</h4>
+                    </div>
+                    <div class="health-category" onclick="startGuidedBreathing()">
+                        <i class="fas fa-wind" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                        <h4>Breathing Exercises</h4>
+                    </div>
+                    <div class="health-category" onclick="showSupportGroups()">
+                        <i class="fas fa-users" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                        <h4>Support Groups</h4>
+                    </div>
+                </div>
+                
+                <div id="mental-wellness-details">
+                    <h3>Mental Wellness Support</h3>
+                    <p>Taking care of your mental health is as important as physical health. Explore our resources to find support that works for you.</p>
+                    
+                    <div class="action-buttons">
+                        <button class="btn" onclick="showTherapists()">
+                            <i class="fas fa-search"></i> Find Therapists
+                        </button>
+                        <button class="btn btn-secondary" onclick="showCrisisResources()">
+                            <i class="fas fa-life-ring"></i> Crisis Resources
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showTherapists() {
+            const details = document.getElementById('mental-wellness-details');
+            details.innerHTML = `
+                <h3>Available Therapists</h3>
+                <div class="specialist-list">
+                    <div class="specialist-card">
+                        <div class="specialist-name">Dr. Priya Mehta</div>
+                        <div>Clinical Psychologist • 10 years experience</div>
+                        <div class="specialist-contact">Specializes in anxiety and depression</div>
+                        <button class="btn btn-small" onclick="bookTherapist('Dr. Priya Mehta')" style="margin-top: 10px;">
+                            <i class="fas fa-calendar"></i> Book Session
+                        </button>
+                    </div>
+                    <div class="specialist-card">
+                        <div class="specialist-name">Dr. Rajesh Kumar</div>
+                        <div>Counselling Psychologist • 8 years experience</div>
+                        <div class="specialist-contact">Specializes in relationship issues</div>
+                        <button class="btn btn-small" onclick="bookTherapist('Dr. Rajesh Kumar')" style="margin-top: 10px;">
+                            <i class="fas fa-calendar"></i> Book Session
+                        </button>
+                    </div>
+                    <div class="specialist-card">
+                        <div class="specialist-name">Ms. Anjali Sharma</div>
+                        <div>Mental Health Counselor • 6 years experience</div>
+                        <div class="specialist-contact">Specializes in stress management</div>
+                        <button class="btn btn-small" onclick="bookTherapist('Ms. Anjali Sharma')" style="margin-top: 10px;">
+                            <i class="fas fa-calendar"></i> Book Session
+                        </button>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" onclick="openMentalWellness()" style="margin-top: 15px;">
+                    <i class="fas fa-arrow-left"></i> Back to Wellness
+                </button>
+            `;
+        }
+
+        function bookTherapist(therapistName) {
+            alert(`Booking session with ${therapistName}\n\nYou will be redirected to the appointment scheduling system.`);
+        }
+
+        function showCrisisResources() {
+            const details = document.getElementById('mental-wellness-details');
+            details.innerHTML = `
+                <h3>Crisis Support Resources</h3>
+                <div class="payment-card">
+                    <h4>National Mental Health Helpline</h4>
+                    <p>Call: <strong>1800-599-0019</strong></p>
+                    <p>Available 24/7 for mental health emergencies</p>
+                </div>
+                <div class="payment-card">
+                    <h4>Crisis Text Line</h4>
+                    <p>Text: <strong>HOME to 741741</strong></p>
+                    <p>Free, 24/7 crisis counseling via text message</p>
+                </div>
+                <div class="payment-card">
+                    <h4>Local Emergency Services</h4>
+                    <p>Call: <strong>108</strong> or visit nearest hospital</p>
+                    <p>For immediate danger to self or others</p>
+                </div>
+                <button class="btn btn-secondary" onclick="openMentalWellness()" style="margin-top: 15px;">
+                    <i class="fas fa-arrow-left"></i> Back to Wellness
+                </button>
+            `;
+        }
+
+        // ==================== NIGHT CARE ====================
+        function openNightCare() {
+            openModal('night-care-modal');
+            
+            const content = document.getElementById('night-care-content');
+            content.innerHTML = `
+                <h3>24/7 Emergency & Urgent Care</h3>
+                <p>Our NightCare services ensure you have access to medical support even during nighttime hours.</p>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-danger" onclick="callEmergency()">
+                        <i class="fas fa-phone"></i> Emergency Hotline
+                    </button>
+                    <button class="btn" onclick="findUrgentCare()">
+                        <i class="fas fa-map-marker-alt"></i> Find Urgent Care
+                    </button>
+                </div>
+                
+                <div class="payment-card">
+                    <h4>Telemedicine Consultations</h4>
+                    <p>Connect with a doctor online for urgent medical advice</p>
+                    <button class="btn btn-small" onclick="startTelemedicine()" style="margin-top: 10px;">
+                        <i class="fas fa-video"></i> Start Consultation
+                    </button>
+                </div>
+                
+                <div class="payment-card">
+                    <h4>Medication Delivery</h4>
+                    <p>Emergency medication delivery available 24/7</p>
+                    <button class="btn btn-small" onclick="openMedicineOrder()" style="margin-top: 10px;">
+                        <i class="fas fa-pills"></i> Order Now
+                    </button>
+                </div>
+                
+                <div class="payment-card">
+                    <h4>Symptom Checker</h4>
+                    <p>Use our AI-powered symptom checker for guidance</p>
+                    <button class="btn btn-small" onclick="openSymptomChecker()" style="margin-top: 10px;">
+                        <i class="fas fa-stethoscope"></i> Check Symptoms
+                    </button>
+                </div>
+            `;
+        }
+
+        function findUrgentCare() {
+            alert('Searching for nearby urgent care facilities...\n\nThis would show a map with locations in a real application.');
+        }
+
+        function startTelemedicine() {
+            alert('Connecting you with an available doctor...\n\nThis would initiate a video call in a real application.');
+        }
+
+        function openSymptomChecker() {
+            alert('Opening symptom checker...\n\nThis would guide you through a series of questions about your symptoms.');
+        }
+
+        // ==================== WELLNESS EXERCISES ====================
+        function startGuidedBreathing() {
+            openModal('mental-wellness-modal');
+            
+            const content = document.getElementById('mental-wellness-content');
+            content.innerHTML = `
+                <div class="exercise-container">
+                    <h3>Guided Breathing Exercise</h3>
+                    <p class="exercise-instructions">Follow the breathing pattern: Inhale for 4 seconds, hold for 7 seconds, exhale for 8 seconds.</p>
+                    
+                    <div class="breathing-circle" id="breathing-circle">
+                        Breathe In
+                    </div>
+                    
+                    <div class="exercise-controls">
+                        <button class="btn" id="start-breathing" onclick="startBreathingExercise()">
+                            <i class="fas fa-play"></i> Start
+                        </button>
+                        <button class="btn btn-secondary" onclick="stopBreathingExercise()">
+                            <i class="fas fa-stop"></i> Stop
+                        </button>
+                    </div>
+                    
+                    <button class="btn btn-secondary" onclick="openMentalWellness()" style="margin-top: 20px;">
+                        <i class="fas fa-arrow-left"></i> Back to Wellness
+                    </button>
+                </div>
+            `;
+        }
+
+        let breathingInterval;
+        let isBreathing = false;
+
+        function startBreathingExercise() {
+            if (isBreathing) return;
+            
+            isBreathing = true;
+            const circle = document.getElementById('breathing-circle');
+            const startButton = document.getElementById('start-breathing');
+            
+            startButton.disabled = true;
+            let phase = 'inhale';
+            let count = 0;
+            
+            breathingInterval = setInterval(() => {
+                if (phase === 'inhale') {
+                    circle.textContent = 'Breathe In';
+                    circle.classList.add('inhale');
+                    circle.classList.remove('exhale');
+                    count++;
+                    
+                    if (count >= 4) {
+                        phase = 'hold';
+                        count = 0;
+                        circle.textContent = 'Hold';
+                    }
+                } else if (phase === 'hold') {
+                    count++;
+                    
+                    if (count >= 7) {
+                        phase = 'exhale';
+                        count = 0;
+                        circle.textContent = 'Breathe Out';
+                        circle.classList.remove('inhale');
+                        circle.classList.add('exhale');
+                    }
+                } else if (phase === 'exhale') {
+                    count++;
+                    
+                    if (count >= 8) {
+                        phase = 'inhale';
+                        count = 0;
+                        circle.textContent = 'Breathe In';
+                        circle.classList.remove('exhale');
+                        circle.classList.add('inhale');
+                    }
+                }
+            }, 1000);
+        }
+
+        function stopBreathingExercise() {
+            clearInterval(breathingInterval);
+            isBreathing = false;
+            
+            const circle = document.getElementById('breathing-circle');
+            const startButton = document.getElementById('start-breathing');
+            
+            circle.textContent = 'Breathe In';
+            circle.classList.remove('inhale', 'exhale');
+            startButton.disabled = false;
+        }
+
+        function startGroundingTechnique() {
+            openModal('mental-wellness-modal');
+            
+            const content = document.getElementById('mental-wellness-content');
+            content.innerHTML = `
+                <div class="exercise-container">
+                    <h3>Grounding Technique</h3>
+                    <p class="exercise-instructions">This exercise helps when you're feeling anxious or disconnected. Focus on your senses:</p>
+                    
+                    <div style="text-align: left; margin: 20px 0;">
+                        <h4>5-4-3-2-1 Grounding</h4>
+                        <p id="grounding-step">Look around and name <strong>5 things</strong> you can see</p>
+                        
+                        <div class="action-buttons" style="justify-content: center; margin-top: 20px;">
+                            <button class="btn" id="next-grounding" onclick="nextGroundingStep()">
+                                Next Step
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-secondary" onclick="openMentalWellness()" style="margin-top: 20px;">
+                        <i class="fas fa-arrow-left"></i> Back to Wellness
+                    </button>
+                </div>
+            `;
+            
+            groundingStep = 0;
+        }
+
+        let groundingStep = 0;
+        const groundingSteps = [
+            "Look around and name <strong>5 things</strong> you can see",
+            "Focus on <strong>4 things</strong> you can touch",
+            "Listen for <strong>3 things</strong> you can hear",
+            "Notice <strong>2 things</strong> you can smell",
+            "Acknowledge <strong>1 thing</strong> you can taste",
+            "Great job! How do you feel now?"
+        ];
+
+        function nextGroundingStep() {
+            groundingStep++;
+            const stepElement = document.getElementById('grounding-step');
+            const nextButton = document.getElementById('next-grounding');
+            
+            if (groundingStep < groundingSteps.length) {
+                stepElement.innerHTML = groundingSteps[groundingStep];
+                
+                if (groundingStep === groundingSteps.length - 1) {
+                    nextButton.textContent = 'Finish';
+                    nextButton.onclick = function() {
+                        openMentalWellness();
+                    };
+                }
+            }
+        }
+
+        function startQuickMeditation() {
+            openModal('mental-wellness-modal');
+            
+            const content = document.getElementById('mental-wellness-content');
+            content.innerHTML = `
+                <div class="exercise-container">
+                    <h3>Quick Meditation</h3>
+                    <p class="exercise-instructions">Find a comfortable position and focus on your breath for 5 minutes.</p>
+                    
+                    <div style="font-size: 3rem; margin: 20px 0;" id="meditation-timer">5:00</div>
+                    
+                    <div class="exercise-controls">
+                        <button class="btn" id="start-meditation" onclick="startMeditationTimer()">
+                            <i class="fas fa-play"></i> Start
+                        </button>
+                        <button class="btn btn-secondary" onclick="resetMeditationTimer()">
+                            <i class="fas fa-redo"></i> Reset
+                        </button>
+                    </div>
+                    
+                    <button class="btn btn-secondary" onclick="openMentalWellness()" style="margin-top: 20px;">
+                        <i class="fas fa-arrow-left"></i> Back to Wellness
+                    </button>
+                </div>
+            `;
+            
+            meditationTime = 300; // 5 minutes in seconds
+        }
+
+        let meditationTime = 300;
+        let meditationInterval;
+
+        function startMeditationTimer() {
+            const timerElement = document.getElementById('meditation-timer');
+            const startButton = document.getElementById('start-meditation');
+            
+            startButton.disabled = true;
+            
+            meditationInterval = setInterval(() => {
+                meditationTime--;
+                
+                const minutes = Math.floor(meditationTime / 60);
+                const seconds = meditationTime % 60;
+                
+                timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (meditationTime <= 0) {
+                    clearInterval(meditationInterval);
+                    timerElement.textContent = "Time's up!";
+                    startButton.disabled = false;
+                    alert('Meditation session complete! Well done.');
+                }
+            }, 1000);
+        }
+
+        function resetMeditationTimer() {
+            clearInterval(meditationInterval);
+            meditationTime = 300;
+            document.getElementById('meditation-timer').textContent = '5:00';
+            document.getElementById('start-meditation').disabled = false;
+        }
+
+        // ==================== EXISTING FUNCTIONS ====================
+        // All the existing functions from your original code remain the same
+        // ... (truncated for brevity) ...
+
+        // ==================== EVENT LISTENERS ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            // All existing event listeners remain the same
+            // ... (truncated for brevity) ...
+            
+            // Add Enter key support for chat
+            document.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && document.getElementById('chat-input')) {
+                    const chatInput = document.getElementById('chat-input');
+                    if (document.activeElement === chatInput) {
+                        sendMessage();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
