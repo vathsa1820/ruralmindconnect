@@ -3,37 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RuralMind Connect | Complete Rural Healthcare Platform</title>
+    <title>RuralMind Connect | Healthcare Platform</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* All existing CSS styles remain the same */
         :root {
             --primary: #2c5aa0;
             --secondary: #4a90e2;
             --light: #f5f7fa;
             --dark: #333;
             --gray: #777;
-            --light-gray: #eaeaea;
             --success: #28a745;
-            --warning: #ffc107;
-            --accent: #22c55e;
             --danger: #dc3545;
-            --purple: #6f42c1;
-            --orange: #fd7e14;
-            --bg-gradient-start: #f6f9ff;
-            --bg-gradient-end: #eef2ff;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background: linear-gradient(180deg, var(--bg-gradient-start), var(--bg-gradient-end));
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
             color: var(--dark);
             line-height: 1.6;
             min-height: 100vh;
@@ -42,61 +33,133 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 24px;
+            padding: 20px;
         }
         
         header {
-            background: radial-gradient(1200px 400px at 20% -10%, rgba(76, 161, 255, 0.15), transparent),
-                        radial-gradient(1200px 400px at 80% -10%, rgba(34, 197, 94, 0.12), transparent),
-                        white;
-            padding: 28px;
-            border-radius: 16px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-            margin-bottom: 24px;
-            position: relative;
-            overflow: hidden;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+            text-align: center;
         }
         
         h1 {
             color: var(--primary);
             margin-bottom: 8px;
-            letter-spacing: -0.02em;
         }
         
         h2 {
             color: var(--primary);
-            margin: 12px 0 10px;
+            margin: 15px 0;
             padding-bottom: 8px;
-            border-bottom: 1px solid var(--light-gray);
-            position: relative;
-        }
-
-        h2::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -1px;
-            width: 56px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-            border-radius: 3px;
+            border-bottom: 1px solid #eaeaea;
         }
         
         h3 {
             color: var(--secondary);
-            margin: 15px 0 10px;
+            margin: 10px 0;
         }
         
         section {
             background-color: white;
-            padding: 22px;
-            border-radius: 14px;
-            box-shadow: 0 6px 24px rgba(0,0,0,0.06);
-            margin-bottom: 22px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
         }
 
-        /* All other existing CSS styles remain the same */
-        /* ... (truncated for brevity) ... */
+        .muted {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: #ffffff;
+            color: var(--primary);
+            border: 1px solid #eaeaea;
+        }
+
+        .btn-success {
+            background-color: var(--success);
+        }
+
+        .btn-danger {
+            background-color: var(--danger);
+        }
+
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 0.85rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+            border: 1px solid #eaeaea;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            border-color: var(--secondary);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
 
         /* Modal Styles */
         .modal {
@@ -116,24 +179,24 @@
             background-color: white;
             border-radius: 12px;
             width: 90%;
-            max-width: 600px;
+            max-width: 500px;
             max-height: 90vh;
             overflow-y: auto;
-            padding: 24px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
         .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             padding-bottom: 10px;
-            border-bottom: 1px solid var(--light-gray);
+            border-bottom: 1px solid #eaeaea;
         }
 
         .modal-title {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 600;
             color: var(--primary);
         }
@@ -146,74 +209,58 @@
             color: var(--gray);
         }
 
-        .close-modal:hover {
-            color: var(--dark);
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 15px;
         }
-
-        /* Doctor Booking Styles */
-        .doctor-details {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
         }
-
-        .doctor-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background-color: var(--light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--primary);
-        }
-
-        .doctor-info {
-            flex: 1;
-        }
-
-        .time-slots {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 10px;
-            margin: 20px 0;
-        }
-
-        .time-slot {
+        
+        input, textarea, select {
+            width: 100%;
             padding: 10px;
-            text-align: center;
-            border: 1px solid var(--light-gray);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
+            border: 1px solid #eaeaea;
+            border-radius: 6px;
+            font-size: 1rem;
         }
 
-        .time-slot:hover {
+        input:focus, textarea:focus, select:focus {
             border-color: var(--secondary);
+            outline: none;
         }
 
-        .time-slot.selected {
-            background-color: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        /* Medicine Order Styles */
-        .medicine-search {
+        /* Doctor List */
+        .doctor-list {
             display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
         }
 
-        .medicine-search input {
-            flex: 1;
+        .doctor-card {
+            padding: 15px;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            background: #fafafa;
         }
 
+        .doctor-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Medicine List */
         .medicine-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
             max-height: 300px;
             overflow-y: auto;
-            margin-bottom: 20px;
         }
 
         .medicine-item {
@@ -221,11 +268,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px;
-            border-bottom: 1px solid var(--light-gray);
-        }
-
-        .medicine-item:last-child {
-            border-bottom: none;
+            border-bottom: 1px solid #eaeaea;
         }
 
         .medicine-actions {
@@ -237,14 +280,14 @@
         .quantity-control {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .quantity-btn {
-            width: 30px;
-            height: 30px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
-            border: 1px solid var(--light-gray);
+            border: 1px solid #eaeaea;
             background: white;
             display: flex;
             align-items: center;
@@ -252,127 +295,46 @@
             cursor: pointer;
         }
 
-        .quantity {
-            min-width: 30px;
-            text-align: center;
-        }
-
-        .cart-summary {
-            background-color: var(--light);
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-
-        /* Health Library Styles */
-        .health-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .health-category {
-            padding: 15px;
-            background-color: var(--light);
-            border-radius: 8px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .health-category:hover {
-            background-color: #e6f0ff;
-        }
-
-        .health-articles {
-            margin-top: 20px;
-        }
-
-        .article-item {
-            padding: 15px;
-            border-bottom: 1px solid var(--light-gray);
-            cursor: pointer;
-        }
-
-        .article-item:hover {
-            background-color: var(--light);
-        }
-
-        .article-item:last-child {
-            border-bottom: none;
-        }
-
-        .article-content {
-            margin-top: 20px;
-            line-height: 1.6;
-        }
-
-        /* Community Chat Styles */
+        /* Chat Styles */
         .chat-container {
-            display: flex;
-            height: 400px;
-            border: 1px solid var(--light-gray);
+            height: 300px;
+            border: 1px solid #eaeaea;
             border-radius: 8px;
             overflow: hidden;
-        }
-
-        .chat-sidebar {
-            width: 30%;
-            border-right: 1px solid var(--light-gray);
-            overflow-y: auto;
-        }
-
-        .chat-main {
-            flex: 1;
             display: flex;
             flex-direction: column;
-        }
-
-        .chat-header {
-            padding: 15px;
-            border-bottom: 1px solid var(--light-gray);
-            background-color: var(--light);
         }
 
         .chat-messages {
             flex: 1;
             padding: 15px;
             overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         .message {
-            margin-bottom: 15px;
             max-width: 80%;
-        }
-
-        .message.received {
-            align-self: flex-start;
-        }
-
-        .message.sent {
-            align-self: flex-end;
-            margin-left: auto;
-        }
-
-        .message-content {
             padding: 10px 15px;
             border-radius: 18px;
         }
 
-        .message.received .message-content {
+        .message.received {
+            align-self: flex-start;
             background-color: #f0f0f0;
         }
 
-        .message.sent .message-content {
+        .message.sent {
+            align-self: flex-end;
             background-color: var(--primary);
             color: white;
         }
 
         .chat-input {
             display: flex;
-            padding: 15px;
-            border-top: 1px solid var(--light-gray);
+            padding: 10px;
+            border-top: 1px solid #eaeaea;
         }
 
         .chat-input input {
@@ -380,32 +342,22 @@
             margin-right: 10px;
         }
 
-        .contact-item {
-            padding: 10px 15px;
-            border-bottom: 1px solid var(--light-gray);
-            cursor: pointer;
-        }
-
-        .contact-item:hover, .contact-item.active {
-            background-color: var(--light);
-        }
-
-        /* Wellness Exercises Styles */
+        /* Wellness Exercises */
         .exercise-container {
             text-align: center;
-            padding: 20px;
+            padding: 20px 0;
         }
 
         .breathing-circle {
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             background-color: var(--light);
             margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             transition: all 4s ease-in-out;
         }
 
@@ -414,43 +366,74 @@
             background-color: #e6f7ff;
         }
 
-        .breathing-circle.exhale {
-            transform: scale(1);
-            background-color: #f0f9ff;
-        }
-
-        .exercise-instructions {
-            margin: 20px 0;
-            line-height: 1.6;
-        }
-
         .exercise-controls {
             display: flex;
             justify-content: center;
             gap: 10px;
+            margin-top: 15px;
         }
 
-        /* Responsive adjustments */
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            text-align: center;
+            border-left: 4px solid var(--primary);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Emergency Banner */
+        .emergency-banner {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .emergency-title {
+            color: #dc2626;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .doctor-details {
-                flex-direction: column;
-                text-align: center;
+            .features-grid {
+                grid-template-columns: 1fr;
             }
             
-            .chat-container {
+            .action-buttons {
                 flex-direction: column;
-                height: 500px;
             }
             
-            .chat-sidebar {
+            .btn {
                 width: 100%;
-                height: 30%;
-                border-right: none;
-                border-bottom: 1px solid var(--light-gray);
-            }
-            
-            .time-slots {
-                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                justify-content: center;
             }
         }
     </style>
@@ -459,8 +442,8 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <h1 class="hero-title">RuralMind Connect</h1>
-            <p class="hero-subtitle">Your trusted partner in rural healthcare. Bringing quality medical services to your community.</p>
+            <h1>RuralMind Connect</h1>
+            <p class="muted">Your trusted partner in rural healthcare</p>
             
             <!-- Quick Stats -->
             <div class="stats-grid">
@@ -474,24 +457,8 @@
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">1000+</div>
-                    <div class="stat-label">Patients Served</div>
+                    <div class="stat-label">Patients</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Villages Covered</div>
-                </div>
-            </div>
-            
-            <div class="action-buttons">
-                <a href="#features" class="btn">
-                    <i class="fas fa-search"></i> Find Specialists
-                </a>
-                <a href="#billing" class="btn btn-secondary">
-                    <i class="fas fa-file-invoice-dollar"></i> Billing
-                </a>
-                <a href="#community" class="btn btn-success">
-                    <i class="fas fa-users"></i> Community Support
-                </a>
             </div>
         </header>
 
@@ -503,9 +470,6 @@
                 <button class="btn btn-danger" onclick="callEmergency()">
                     <i class="fas fa-phone"></i> Call Emergency: 108
                 </button>
-                <button class="btn btn-secondary" onclick="locateHospital()">
-                    <i class="fas fa-map-marker-alt"></i> Locate Nearest Hospital
-                </button>
             </div>
         </section>
 
@@ -513,113 +477,68 @@
         <section id="features">
             <h2>Our Services</h2>
             <div class="features-grid">
-                <a href="#" class="feature-card" onclick="openDoctorBooking()">
+                <div class="feature-card" onclick="openDoctorBooking()">
                     <div class="feature-icon">
                         <i class="fas fa-stethoscope"></i>
                     </div>
                     <h3 class="feature-title">Find Doctor</h3>
-                    <p class="feature-description">Search for specialists near you with location-based services.</p>
-                    <div class="muted">Learn more →</div>
-                </a>
+                    <p class="muted">Book appointments with specialists</p>
+                </div>
                 
-                <a href="#" class="feature-card" onclick="openMedicineOrder()">
+                <div class="feature-card" onclick="openMedicineOrder()">
                     <div class="feature-icon">
                         <i class="fas fa-pills"></i>
                     </div>
                     <h3 class="feature-title">Order Medicine</h3>
-                    <p class="feature-description">Get medicines delivered to your doorstep within 24 hours.</p>
-                    <div class="muted">Learn more →</div>
-                </a>
+                    <p class="muted">Get medicines delivered to your doorstep</p>
+                </div>
                 
-                <a href="#" class="feature-card" onclick="openHealthLibrary()">
+                <div class="feature-card" onclick="openHealthLibrary()">
                     <div class="feature-icon">
                         <i class="fas fa-book-medical"></i>
                     </div>
                     <h3 class="feature-title">Health Library</h3>
-                    <p class="feature-description">Access comprehensive health articles and wellness guides.</p>
-                    <div class="muted">Learn more →</div>
-                </a>
+                    <p class="muted">Access health articles and guides</p>
+                </div>
                 
-                <a href="#" class="feature-card" onclick="openNightCare()">
-                    <div class="feature-icon">
-                        <i class="fas fa-bed"></i>
-                    </div>
-                    <h3 class="feature-title">NightCare</h3>
-                    <p class="feature-description">24/7 emergency support and urgent care services.</p>
-                    <div class="muted">Learn more →</div>
-                </a>
-                
-                <a href="#" class="feature-card" onclick="openCommunityChat()">
+                <div class="feature-card" onclick="openCommunityChat()">
                     <div class="feature-icon">
                         <i class="fas fa-comments"></i>
                     </div>
                     <h3 class="feature-title">Community Chat</h3>
-                    <p class="feature-description">Connect with healthcare providers and community members.</p>
-                    <div class="muted">Learn more →</div>
-                </a>
+                    <p class="muted">Connect with healthcare providers</p>
+                </div>
                 
-                <a href="#" class="feature-card" onclick="openMentalWellness()">
+                <div class="feature-card" onclick="openMentalWellness()">
                     <div class="feature-icon">
                         <i class="fas fa-smile"></i>
                     </div>
                     <h3 class="feature-title">Mental Wellness</h3>
-                    <p class="feature-description">Therapy sessions and mental health resources.</p>
-                    <div class="muted">Learn more →</div>
-                </a>
-                
-                <a href="#billing" class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-credit-card"></i>
-                    </div>
-                    <h3 class="feature-title">Billing & Payments</h3>
-                    <p class="feature-description">Manage invoices, payments, and insurance claims.</p>
-                    <div class="muted">Learn more →</div>
-                </a>
-                
-                <a href="#feedback" class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3 class="feature-title">Feedback & Reviews</h3>
-                    <p class="feature-description">Share your experience and read community reviews.</p>
-                    <div class="muted">Learn more →</div>
-                </a>
-                
-                <a href="#community" class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="feature-title">Community Support</h3>
-                    <p class="feature-description">Local health centers, support groups, and resources.</p>
-                    <div class="muted">Learn more →</div>
-                </a>
-            </div>
-        </section>
-
-        <!-- All other sections remain the same -->
-        <!-- ... (truncated for brevity) ... -->
-
-        <!-- Wellness Section -->
-        <section class="wellness-section" id="wellness">
-            <h2>How are you feeling today?</h2>
-            <p>It sounds like you're having a tough moment. Let's try to find some calm.</p>
-            
-            <div class="wellness-options">
-                <div class="wellness-option" onclick="startGuidedBreathing()">
-                    <h3>Guided Breathing</h3>
+                    <p class="muted">Therapy and mental health resources</p>
                 </div>
-                <div class="wellness-option" onclick="startGroundingTechnique()">
-                    <h3>Grounding Technique</h3>
-                </div>
-                <div class="wellness-option" onclick="startQuickMeditation()">
-                    <h3>Quick Meditation</h3>
+                
+                <div class="feature-card" onclick="openNightCare()">
+                    <div class="feature-icon">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <h3 class="feature-title">NightCare</h3>
+                    <p class="muted">24/7 emergency support</p>
                 </div>
             </div>
         </section>
-        
-        <footer>
-            <p>&copy; 2025 RuralMind Connect. Bringing healthcare to rural communities.</p>
-        </footer>
+
+        <!-- User Section -->
+        <section>
+            <h2>Join RuralMind Connect</h2>
+            <div class="action-buttons">
+                <button class="btn" onclick="openSignup()">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+                <button class="btn btn-secondary" onclick="openLogin()">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </div>
+        </section>
     </div>
 
     <!-- Modal for Doctor Booking -->
@@ -630,7 +549,40 @@
                 <button class="close-modal" onclick="closeModal('doctor-booking-modal')">&times;</button>
             </div>
             <div id="doctor-booking-content">
-                <!-- Content will be loaded dynamically -->
+                <div class="form-group">
+                    <label for="specialty">Specialty</label>
+                    <select id="specialty">
+                        <option value="general">General Physician</option>
+                        <option value="pediatrics">Pediatrics</option>
+                        <option value="cardiology">Cardiology</option>
+                        <option value="dermatology">Dermatology</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="appointment-date">Date</label>
+                    <input type="date" id="appointment-date">
+                </div>
+                
+                <div class="form-group">
+                    <label>Available Doctors</label>
+                    <div class="doctor-list">
+                        <div class="doctor-card">
+                            <div class="doctor-name">Dr. Aren Sharma</div>
+                            <div class="muted">General Physician • 15 years experience</div>
+                            <button class="btn btn-small" onclick="selectDoctor('Dr. Aren Sharma')" style="margin-top: 8px;">Select</button>
+                        </div>
+                        <div class="doctor-card">
+                            <div class="doctor-name">Dr. Priya Mehta</div>
+                            <div class="muted">Pediatrician • 10 years experience</div>
+                            <button class="btn btn-small" onclick="selectDoctor('Dr. Priya Mehta')" style="margin-top: 8px;">Select</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn" onclick="confirmAppointment()" style="width: 100%;">
+                    <i class="fas fa-calendar-check"></i> Book Appointment
+                </button>
             </div>
         </div>
     </div>
@@ -643,7 +595,57 @@
                 <button class="close-modal" onclick="closeModal('medicine-order-modal')">&times;</button>
             </div>
             <div id="medicine-order-content">
-                <!-- Content will be loaded dynamically -->
+                <div class="form-group">
+                    <input type="text" id="medicine-search" placeholder="Search for medicines...">
+                </div>
+                
+                <div class="medicine-list">
+                    <div class="medicine-item">
+                        <div>
+                            <strong>Paracetamol 500mg</strong>
+                            <div class="muted">Pain & Fever Relief • ₹25</div>
+                        </div>
+                        <div class="medicine-actions">
+                            <div class="quantity-control">
+                                <button class="quantity-btn" onclick="decreaseQuantity('paracetamol')">-</button>
+                                <span class="quantity" id="paracetamol-quantity">0</span>
+                                <button class="quantity-btn" onclick="increaseQuantity('paracetamol')">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="medicine-item">
+                        <div>
+                            <strong>Amoxicillin 250mg</strong>
+                            <div class="muted">Antibiotic • ₹120</div>
+                        </div>
+                        <div class="medicine-actions">
+                            <div class="quantity-control">
+                                <button class="quantity-btn" onclick="decreaseQuantity('amoxicillin')">-</button>
+                                <span class="quantity" id="amoxicillin-quantity">0</span>
+                                <button class="quantity-btn" onclick="increaseQuantity('amoxicillin')">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="medicine-item">
+                        <div>
+                            <strong>Cetirizine 10mg</strong>
+                            <div class="muted">Allergy Relief • ₹45</div>
+                        </div>
+                        <div class="medicine-actions">
+                            <div class="quantity-control">
+                                <button class="quantity-btn" onclick="decreaseQuantity('cetirizine')">-</button>
+                                <span class="quantity" id="cetirizine-quantity">0</span>
+                                <button class="quantity-btn" onclick="increaseQuantity('cetirizine')">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn" onclick="placeOrder()" style="width: 100%;">
+                    <i class="fas fa-shopping-bag"></i> Place Order
+                </button>
             </div>
         </div>
     </div>
@@ -656,7 +658,28 @@
                 <button class="close-modal" onclick="closeModal('health-library-modal')">&times;</button>
             </div>
             <div id="health-library-content">
-                <!-- Content will be loaded dynamically -->
+                <div class="form-group">
+                    <input type="text" placeholder="Search health topics...">
+                </div>
+                
+                <h3>Popular Articles</h3>
+                <div class="doctor-list">
+                    <div class="doctor-card">
+                        <div class="doctor-name">Understanding Common Cold Symptoms</div>
+                        <div class="muted">Learn to identify and manage common cold symptoms effectively.</div>
+                        <button class="btn btn-small" style="margin-top: 8px;">Read</button>
+                    </div>
+                    <div class="doctor-card">
+                        <div class="doctor-name">Healthy Eating on a Budget</div>
+                        <div class="muted">Nutrition tips that won't break the bank.</div>
+                        <button class="btn btn-small" style="margin-top: 8px;">Read</button>
+                    </div>
+                    <div class="doctor-card">
+                        <div class="doctor-name">Stress Management Techniques</div>
+                        <div class="muted">Simple methods to reduce stress in daily life.</div>
+                        <button class="btn btn-small" style="margin-top: 8px;">Read</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -669,7 +692,22 @@
                 <button class="close-modal" onclick="closeModal('community-chat-modal')">&times;</button>
             </div>
             <div id="community-chat-content">
-                <!-- Content will be loaded dynamically -->
+                <div class="chat-container">
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message received">
+                            Hello! Welcome to the Health Community. How can we help you today?
+                        </div>
+                        <div class="message received">
+                            Feel free to ask any health-related questions here.
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="chat-input" placeholder="Type your message...">
+                        <button class="btn" onclick="sendMessage()">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -682,7 +720,32 @@
                 <button class="close-modal" onclick="closeModal('mental-wellness-modal')">&times;</button>
             </div>
             <div id="mental-wellness-content">
-                <!-- Content will be loaded dynamically -->
+                <h3>Guided Breathing Exercise</h3>
+                <p class="muted">Follow the breathing pattern: Inhale for 4 seconds, hold for 7 seconds, exhale for 8 seconds.</p>
+                
+                <div class="exercise-container">
+                    <div class="breathing-circle" id="breathing-circle">
+                        Breathe In
+                    </div>
+                    
+                    <div class="exercise-controls">
+                        <button class="btn" id="start-breathing" onclick="startBreathingExercise()">
+                            <i class="fas fa-play"></i> Start
+                        </button>
+                        <button class="btn btn-secondary" onclick="stopBreathingExercise()">
+                            <i class="fas fa-stop"></i> Stop
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" onclick="showTherapists()">
+                        <i class="fas fa-user-md"></i> Find Therapists
+                    </button>
+                    <button class="btn btn-secondary" onclick="showCrisisResources()">
+                        <i class="fas fa-life-ring"></i> Crisis Resources
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -695,7 +758,80 @@
                 <button class="close-modal" onclick="closeModal('night-care-modal')">&times;</button>
             </div>
             <div id="night-care-content">
-                <!-- Content will be loaded dynamically -->
+                <h3>24/7 Emergency & Urgent Care</h3>
+                <p class="muted">Our NightCare services ensure you have access to medical support even during nighttime hours.</p>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-danger" onclick="callEmergency()">
+                        <i class="fas fa-phone"></i> Emergency Hotline
+                    </button>
+                    <button class="btn" onclick="findUrgentCare()">
+                        <i class="fas fa-map-marker-alt"></i> Find Urgent Care
+                    </button>
+                </div>
+                
+                <div class="doctor-card" style="margin-top: 15px;">
+                    <div class="doctor-name">Telemedicine Consultations</div>
+                    <div class="muted">Connect with a doctor online for urgent medical advice</div>
+                    <button class="btn btn-small" onclick="startTelemedicine()" style="margin-top: 8px;">
+                        <i class="fas fa-video"></i> Start Consultation
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Signup -->
+    <div class="modal" id="signup-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Create Account</h3>
+                <button class="close-modal" onclick="closeModal('signup-modal')">&times;</button>
+            </div>
+            <div id="signup-content">
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password">
+                </div>
+                
+                <button class="btn" onclick="signup()" style="width: 100%;">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Login -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Login</h3>
+                <button class="close-modal" onclick="closeModal('login-modal')">&times;</button>
+            </div>
+            <div id="login-content">
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password">
+                </div>
+                
+                <button class="btn" onclick="login()" style="width: 100%;">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
             </div>
         </div>
     </div>
@@ -704,12 +840,12 @@
         // ==================== MODAL MANAGEMENT ====================
         function openModal(modalId) {
             document.getElementById(modalId).style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore scrolling
+            document.body.style.overflow = 'auto';
         }
 
         // Close modal when clicking outside the content
@@ -726,179 +862,26 @@
         // ==================== DOCTOR BOOKING ====================
         function openDoctorBooking() {
             openModal('doctor-booking-modal');
-            
-            const content = document.getElementById('doctor-booking-content');
-            content.innerHTML = `
-                <div class="doctor-details">
-                    <div class="doctor-avatar">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <div class="doctor-info">
-                        <h3>Dr. Aren Sharma</h3>
-                        <p class="muted">General Physician</p>
-                        <p>Experience: 15 years</p>
-                        <p>Languages: English, Hindi</p>
-                        <div class="rating-stars">
-                            <span class="star active">★</span>
-                            <span class="star active">★</span>
-                            <span class="star active">★</span>
-                            <span class="star active">★</span>
-                            <span class="star">★</span>
-                            <span class="muted">(4.2)</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="appointment-date">Select Date</label>
-                    <input type="date" id="appointment-date" min="${new Date().toISOString().split('T')[0]}">
-                </div>
-                
-                <div class="form-group">
-                    <label>Available Time Slots</label>
-                    <div class="time-slots" id="time-slots">
-                        <div class="time-slot" data-time="09:00">09:00 AM</div>
-                        <div class="time-slot" data-time="10:00">10:00 AM</div>
-                        <div class="time-slot" data-time="11:00">11:00 AM</div>
-                        <div class="time-slot" data-time="14:00">02:00 PM</div>
-                        <div class="time-slot" data-time="15:00">03:00 PM</div>
-                        <div class="time-slot" data-time="16:00">04:00 PM</div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="appointment-reason">Reason for Visit</label>
-                    <textarea id="appointment-reason" rows="3" placeholder="Briefly describe your symptoms or reason for consultation"></textarea>
-                </div>
-                
-                <button class="btn" onclick="confirmAppointment()" style="width: 100%;">
-                    <i class="fas fa-calendar-check"></i> Book Appointment
-                </button>
-            `;
-            
-            // Add event listeners to time slots
-            const timeSlots = document.querySelectorAll('.time-slot');
-            timeSlots.forEach(slot => {
-                slot.addEventListener('click', function() {
-                    timeSlots.forEach(s => s.classList.remove('selected'));
-                    this.classList.add('selected');
-                });
-            });
+        }
+
+        function selectDoctor(doctorName) {
+            alert(`Selected ${doctorName}. Please choose a date and time.`);
         }
 
         function confirmAppointment() {
-            const selectedDate = document.getElementById('appointment-date').value;
-            const selectedTime = document.querySelector('.time-slot.selected');
-            const reason = document.getElementById('appointment-reason').value;
-            
-            if (!selectedDate) {
+            const date = document.getElementById('appointment-date').value;
+            if (!date) {
                 alert('Please select a date for your appointment.');
                 return;
             }
-            
-            if (!selectedTime) {
-                alert('Please select a time slot for your appointment.');
-                return;
-            }
-            
-            if (!reason.trim()) {
-                alert('Please provide a reason for your visit.');
-                return;
-            }
-            
-            alert(`Appointment confirmed!\n\nDate: ${selectedDate}\nTime: ${selectedTime.textContent}\nReason: ${reason}\n\nYou will receive a confirmation message shortly.`);
+            alert(`Appointment confirmed!\n\nYou will receive a confirmation message shortly.`);
             closeModal('doctor-booking-modal');
         }
 
         // ==================== MEDICINE ORDER ====================
         function openMedicineOrder() {
             openModal('medicine-order-modal');
-            
-            const content = document.getElementById('medicine-order-content');
-            content.innerHTML = `
-                <div class="medicine-search">
-                    <input type="text" id="medicine-search" placeholder="Search for medicines...">
-                    <button class="btn" onclick="searchMedicines()">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-                
-                <div class="medicine-list" id="medicine-list">
-                    <div class="medicine-item">
-                        <div>
-                            <strong>Paracetamol 500mg</strong>
-                            <p class="muted">Pain & Fever Relief</p>
-                            <p>₹25 per strip</p>
-                        </div>
-                        <div class="medicine-actions">
-                            <div class="quantity-control">
-                                <button class="quantity-btn" onclick="decreaseQuantity('paracetamol')">-</button>
-                                <span class="quantity" id="paracetamol-quantity">0</span>
-                                <button class="quantity-btn" onclick="increaseQuantity('paracetamol')">+</button>
-                            </div>
-                            <button class="btn btn-small" onclick="addToCart('paracetamol')">
-                                <i class="fas fa-cart-plus"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="medicine-item">
-                        <div>
-                            <strong>Amoxicillin 250mg</strong>
-                            <p class="muted">Antibiotic</p>
-                            <p>₹120 per strip</p>
-                        </div>
-                        <div class="medicine-actions">
-                            <div class="quantity-control">
-                                <button class="quantity-btn" onclick="decreaseQuantity('amoxicillin')">-</button>
-                                <span class="quantity" id="amoxicillin-quantity">0</span>
-                                <button class="quantity-btn" onclick="increaseQuantity('amoxicillin')">+</button>
-                            </div>
-                            <button class="btn btn-small" onclick="addToCart('amoxicillin')">
-                                <i class="fas fa-cart-plus"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="medicine-item">
-                        <div>
-                            <strong>Cetirizine 10mg</strong>
-                            <p class="muted">Allergy Relief</p>
-                            <p>₹45 per strip</p>
-                        </div>
-                        <div class="medicine-actions">
-                            <div class="quantity-control">
-                                <button class="quantity-btn" onclick="decreaseQuantity('cetirizine')">-</button>
-                                <span class="quantity" id="cetirizine-quantity">0</span>
-                                <button class="quantity-btn" onclick="increaseQuantity('cetirizine')">+</button>
-                            </div>
-                            <button class="btn btn-small" onclick="addToCart('cetirizine')">
-                                <i class="fas fa-cart-plus"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="cart-summary" id="cart-summary" style="display: none;">
-                    <h4>Order Summary</h4>
-                    <div id="cart-items"></div>
-                    <div style="display: flex; justify-content: space-between; margin-top: 10px;">
-                        <strong>Total:</strong>
-                        <strong id="cart-total">₹0</strong>
-                    </div>
-                    <button class="btn" onclick="placeOrder()" style="width: 100%; margin-top: 15px;">
-                        <i class="fas fa-shopping-bag"></i> Place Order
-                    </button>
-                </div>
-            `;
         }
-
-        let cart = {};
-        const medicinePrices = {
-            'paracetamol': 25,
-            'amoxicillin': 120,
-            'cetirizine': 45
-        };
 
         function increaseQuantity(medicineId) {
             const quantityElement = document.getElementById(`${medicineId}-quantity`);
@@ -914,365 +897,40 @@
             }
         }
 
-        function addToCart(medicineId) {
-            const quantity = parseInt(document.getElementById(`${medicineId}-quantity`).textContent);
-            if (quantity === 0) {
-                alert('Please select at least one item.');
-                return;
-            }
-            
-            cart[medicineId] = quantity;
-            updateCartSummary();
-        }
-
-        function updateCartSummary() {
-            const cartSummary = document.getElementById('cart-summary');
-            const cartItems = document.getElementById('cart-items');
-            const cartTotal = document.getElementById('cart-total');
-            
-            if (Object.keys(cart).length === 0) {
-                cartSummary.style.display = 'none';
-                return;
-            }
-            
-            cartSummary.style.display = 'block';
-            cartItems.innerHTML = '';
-            
-            let total = 0;
-            for (const [medicineId, quantity] of Object.entries(cart)) {
-                const price = medicinePrices[medicineId];
-                const subtotal = price * quantity;
-                total += subtotal;
-                
-                const itemElement = document.createElement('div');
-                itemElement.style.display = 'flex';
-                itemElement.style.justifyContent = 'space-between';
-                itemElement.style.marginBottom = '5px';
-                itemElement.innerHTML = `
-                    <span>${getMedicineName(medicineId)} x ${quantity}</span>
-                    <span>₹${subtotal}</span>
-                `;
-                cartItems.appendChild(itemElement);
-            }
-            
-            cartTotal.textContent = `₹${total}`;
-        }
-
-        function getMedicineName(medicineId) {
-            const names = {
-                'paracetamol': 'Paracetamol 500mg',
-                'amoxicillin': 'Amoxicillin 250mg',
-                'cetirizine': 'Cetirizine 10mg'
-            };
-            return names[medicineId] || medicineId;
-        }
-
         function placeOrder() {
-            if (Object.keys(cart).length === 0) {
-                alert('Your cart is empty. Please add some medicines.');
+            let hasItems = false;
+            const medicines = ['paracetamol', 'amoxicillin', 'cetirizine'];
+            
+            for (const medicine of medicines) {
+                const quantity = parseInt(document.getElementById(`${medicine}-quantity`).textContent);
+                if (quantity > 0) {
+                    hasItems = true;
+                    break;
+                }
+            }
+            
+            if (!hasItems) {
+                alert('Please add at least one medicine to your order.');
                 return;
             }
             
-            const address = prompt('Please enter your delivery address:');
-            if (!address || !address.trim()) {
-                alert('Delivery address is required.');
-                return;
-            }
-            
-            alert(`Order placed successfully!\n\nMedicines will be delivered to:\n${address}\n\nEstimated delivery: Within 24 hours`);
-            cart = {};
+            alert(`Order placed successfully!\n\nMedicines will be delivered within 24 hours.`);
             closeModal('medicine-order-modal');
-        }
-
-        function searchMedicines() {
-            const searchTerm = document.getElementById('medicine-search').value.toLowerCase();
-            alert(`Searching for: ${searchTerm}\n\nThis feature would connect to a medicine database in a real application.`);
+            
+            // Reset quantities
+            medicines.forEach(medicine => {
+                document.getElementById(`${medicine}-quantity`).textContent = '0';
+            });
         }
 
         // ==================== HEALTH LIBRARY ====================
         function openHealthLibrary() {
             openModal('health-library-modal');
-            
-            const content = document.getElementById('health-library-content');
-            content.innerHTML = `
-                <div class="health-categories">
-                    <div class="health-category" onclick="showArticles('general')">
-                        <i class="fas fa-heartbeat" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                        <h4>General Health</h4>
-                    </div>
-                    <div class="health-category" onclick="showArticles('nutrition')">
-                        <i class="fas fa-apple-alt" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                        <h4>Nutrition</h4>
-                    </div>
-                    <div class="health-category" onclick="showArticles('fitness')">
-                        <i class="fas fa-running" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                        <h4>Fitness</h4>
-                    </div>
-                    <div class="health-category" onclick="showArticles('mental')">
-                        <i class="fas fa-brain" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                        <h4>Mental Health</h4>
-                    </div>
-                </div>
-                
-                <div class="health-articles" id="health-articles">
-                    <h3>Popular Articles</h3>
-                    <div class="article-item" onclick="showArticle('article1')">
-                        <h4>Understanding Common Cold Symptoms</h4>
-                        <p class="muted">Learn to identify and manage common cold symptoms effectively.</p>
-                    </div>
-                    <div class="article-item" onclick="showArticle('article2')">
-                        <h4>Healthy Eating on a Budget</h4>
-                        <p class="muted">Nutrition tips that won't break the bank.</p>
-                    </div>
-                    <div class="article-item" onclick="showArticle('article3')">
-                        <h4>Stress Management Techniques</h4>
-                        <p class="muted">Simple methods to reduce stress in daily life.</p>
-                    </div>
-                </div>
-                
-                <div class="article-content" id="article-content" style="display: none;">
-                    <!-- Article content will be loaded here -->
-                </div>
-            `;
-        }
-
-        function showArticles(category) {
-            const articles = document.getElementById('health-articles');
-            articles.innerHTML = `<h3>${getCategoryName(category)} Articles</h3>`;
-            
-            // In a real app, this would fetch from a database
-            const categoryArticles = {
-                'general': [
-                    {id: 'article1', title: 'Understanding Common Cold Symptoms', desc: 'Learn to identify and manage common cold symptoms effectively.'},
-                    {id: 'article4', title: 'First Aid Basics Everyone Should Know', desc: 'Essential first aid techniques for common emergencies.'}
-                ],
-                'nutrition': [
-                    {id: 'article2', title: 'Healthy Eating on a Budget', desc: 'Nutrition tips that won\'t break the bank.'},
-                    {id: 'article5', title: 'Importance of Hydration', desc: 'Why staying hydrated is crucial for your health.'}
-                ],
-                'fitness': [
-                    {id: 'article6', title: 'Simple Exercises for Busy People', desc: 'Quick workouts you can do anywhere.'},
-                    {id: 'article7', title: 'Benefits of Walking Daily', desc: 'How a simple walk can improve your health.'}
-                ],
-                'mental': [
-                    {id: 'article3', title: 'Stress Management Techniques', desc: 'Simple methods to reduce stress in daily life.'},
-                    {id: 'article8', title: 'Improving Sleep Quality', desc: 'Tips for better sleep and its impact on health.'}
-                ]
-            };
-            
-            categoryArticles[category].forEach(article => {
-                const articleElement = document.createElement('div');
-                articleElement.className = 'article-item';
-                articleElement.innerHTML = `
-                    <h4>${article.title}</h4>
-                    <p class="muted">${article.desc}</p>
-                `;
-                articleElement.addEventListener('click', () => showArticle(article.id));
-                articles.appendChild(articleElement);
-            });
-        }
-
-        function getCategoryName(category) {
-            const names = {
-                'general': 'General Health',
-                'nutrition': 'Nutrition',
-                'fitness': 'Fitness',
-                'mental': 'Mental Health'
-            };
-            return names[category] || category;
-        }
-
-        function showArticle(articleId) {
-            const articleContent = document.getElementById('article-content');
-            const articles = document.getElementById('health-articles');
-            
-            articles.style.display = 'none';
-            articleContent.style.display = 'block';
-            
-            // In a real app, this would fetch from a database
-            const articleData = {
-                'article1': {
-                    title: 'Understanding Common Cold Symptoms',
-                    content: `<p>The common cold is a viral infection of your nose and throat (upper respiratory tract). It's usually harmless, although it might not feel that way. Many types of viruses can cause a common cold.</p>
-                    <h4>Symptoms</h4>
-                    <ul>
-                        <li>Runny or stuffy nose</li>
-                        <li>Sore throat</li>
-                        <li>Cough</li>
-                        <li>Congestion</li>
-                        <li>Slight body aches or a mild headache</li>
-                        <li>Sneezing</li>
-                        <li>Low-grade fever</li>
-                        <li>Generally feeling unwell</li>
-                    </ul>
-                    <h4>Treatment</h4>
-                    <p>There's no cure for the common cold. Antibiotics don't work against cold viruses. Treatment should focus on relieving symptoms.</p>
-                    <ul>
-                        <li>Drink plenty of fluids</li>
-                        <li>Rest as much as possible</li>
-                        <li>Use over-the-counter cold medications</li>
-                        <li>Gargle with warm salt water</li>
-                        <li>Use a humidifier</li>
-                    </ul>`
-                },
-                'article2': {
-                    title: 'Healthy Eating on a Budget',
-                    content: `<p>Eating healthy doesn't have to be expensive. With some planning and smart shopping, you can enjoy nutritious meals without breaking the bank.</p>
-                    <h4>Tips for Budget-Friendly Healthy Eating</h4>
-                    <ul>
-                        <li>Plan your meals for the week</li>
-                        <li>Create a shopping list and stick to it</li>
-                        <li>Buy seasonal fruits and vegetables</li>
-                        <li>Purchase generic or store brands</li>
-                        <li>Buy in bulk when possible</li>
-                        <li>Cook at home more often</li>
-                        <li>Use leftovers creatively</li>
-                        <li>Grow your own herbs and vegetables</li>
-                    </ul>
-                    <h4>Nutrient-Dense, Affordable Foods</h4>
-                    <ul>
-                        <li>Beans and lentils</li>
-                        <li>Oats</li>
-                        <li>Eggs</li>
-                        <li>Frozen vegetables</li>
-                        <li>Bananas</li>
-                        <li>Potatoes</li>
-                        <li>Canned tuna</li>
-                        <li>Peanut butter</li>
-                    </ul>`
-                }
-                // More articles would be defined here in a real application
-            };
-            
-            const article = articleData[articleId] || {
-                title: 'Article Not Found',
-                content: '<p>The requested article could not be found.</p>'
-            };
-            
-            articleContent.innerHTML = `
-                <button class="btn btn-small btn-secondary" onclick="backToArticles()" style="margin-bottom: 15px;">
-                    <i class="fas fa-arrow-left"></i> Back to Articles
-                </button>
-                <h3>${article.title}</h3>
-                <div>${article.content}</div>
-            `;
-        }
-
-        function backToArticles() {
-            const articleContent = document.getElementById('article-content');
-            const articles = document.getElementById('health-articles');
-            
-            articleContent.style.display = 'none';
-            articles.style.display = 'block';
         }
 
         // ==================== COMMUNITY CHAT ====================
         function openCommunityChat() {
             openModal('community-chat-modal');
-            
-            const content = document.getElementById('community-chat-content');
-            content.innerHTML = `
-                <div class="chat-container">
-                    <div class="chat-sidebar">
-                        <div class="contact-item active" onclick="switchChat('general')">
-                            <strong>General Health</strong>
-                            <p class="muted">Community discussions</p>
-                        </div>
-                        <div class="contact-item" onclick="switchChat('doctors')">
-                            <strong>Doctors Forum</strong>
-                            <p class="muted">Medical professionals</p>
-                        </div>
-                        <div class="contact-item" onclick="switchChat('support')">
-                            <strong>Support Group</strong>
-                            <p class="muted">Patient support</p>
-                        </div>
-                    </div>
-                    <div class="chat-main">
-                        <div class="chat-header">
-                            <h4 id="chat-title">General Health</h4>
-                            <p class="muted" id="chat-description">Community discussions</p>
-                        </div>
-                        <div class="chat-messages" id="chat-messages">
-                            <div class="message received">
-                                <div class="message-content">
-                                    Hello! Welcome to the General Health chat. How can we help you today?
-                                </div>
-                            </div>
-                            <div class="message received">
-                                <div class="message-content">
-                                    Feel free to ask any health-related questions here.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chat-input">
-                            <input type="text" id="chat-input" placeholder="Type your message...">
-                            <button class="btn" onclick="sendMessage()">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function switchChat(chatType) {
-            // Update active chat in sidebar
-            document.querySelectorAll('.contact-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            event.target.closest('.contact-item').classList.add('active');
-            
-            // Update chat header
-            const chatTitle = document.getElementById('chat-title');
-            const chatDescription = document.getElementById('chat-description');
-            const chatMessages = document.getElementById('chat-messages');
-            
-            if (chatType === 'general') {
-                chatTitle.textContent = 'General Health';
-                chatDescription.textContent = 'Community discussions';
-                chatMessages.innerHTML = `
-                    <div class="message received">
-                        <div class="message-content">
-                            Hello! Welcome to the General Health chat. How can we help you today?
-                        </div>
-                    </div>
-                    <div class="message received">
-                        <div class="message-content">
-                            Feel free to ask any health-related questions here.
-                        </div>
-                    </div>
-                `;
-            } else if (chatType === 'doctors') {
-                chatTitle.textContent = 'Doctors Forum';
-                chatDescription.textContent = 'Medical professionals';
-                chatMessages.innerHTML = `
-                    <div class="message received">
-                        <div class="message-content">
-                            Welcome to the Doctors Forum. This is a space for medical professionals to discuss cases and share knowledge.
-                        </div>
-                    </div>
-                    <div class="message received">
-                        <div class="message-content">
-                            Please remember patient confidentiality when discussing cases.
-                        </div>
-                    </div>
-                `;
-            } else if (chatType === 'support') {
-                chatTitle.textContent = 'Support Group';
-                chatDescription.textContent = 'Patient support';
-                chatMessages.innerHTML = `
-                    <div class="message received">
-                        <div class="message-content">
-                            Welcome to our support group. This is a safe space to share experiences and support each other.
-                        </div>
-                    </div>
-                    <div class="message received">
-                        <div class="message-content">
-                            Remember to be kind and respectful to everyone here.
-                        </div>
-                    </div>
-                `;
-            }
         }
 
         function sendMessage() {
@@ -1284,9 +942,7 @@
             const chatMessages = document.getElementById('chat-messages');
             const messageElement = document.createElement('div');
             messageElement.className = 'message sent';
-            messageElement.innerHTML = `
-                <div class="message-content">${message}</div>
-            `;
+            messageElement.textContent = message;
             
             chatMessages.appendChild(messageElement);
             input.value = '';
@@ -1297,20 +953,17 @@
             // Simulate a response after a short delay
             setTimeout(() => {
                 const responses = [
-                    "Thank you for sharing. How can we assist you further?",
+                    "Thank you for your question. How can we assist you?",
                     "That's a good question. Let me find more information for you.",
                     "I understand your concern. Many people experience similar issues.",
-                    "Have you consulted with a healthcare provider about this?",
-                    "Thank you for your message. Our community appreciates your participation."
+                    "Have you consulted with a healthcare provider about this?"
                 ];
                 
                 const randomResponse = responses[Math.floor(Math.random() * responses.length)];
                 
                 const responseElement = document.createElement('div');
                 responseElement.className = 'message received';
-                responseElement.innerHTML = `
-                    <div class="message-content">${randomResponse}</div>
-                `;
+                responseElement.textContent = randomResponse;
                 
                 chatMessages.appendChild(responseElement);
                 chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -1320,193 +973,6 @@
         // ==================== MENTAL WELLNESS ====================
         function openMentalWellness() {
             openModal('mental-wellness-modal');
-            
-            const content = document.getElementById('mental-wellness-content');
-            content.innerHTML = `
-                <div class="health-categories">
-                    <div class="health-category" onclick="showTherapists()">
-                        <i class="fas fa-user-md" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                        <h4>Find a Therapist</h4>
-                    </div>
-                    <div class="health-category" onclick="showWellnessResources()">
-                        <i class="fas fa-book" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                        <h4>Wellness Resources</h4>
-                    </div>
-                    <div class="health-category" onclick="startGuidedBreathing()">
-                        <i class="fas fa-wind" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                        <h4>Breathing Exercises</h4>
-                    </div>
-                    <div class="health-category" onclick="showSupportGroups()">
-                        <i class="fas fa-users" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                        <h4>Support Groups</h4>
-                    </div>
-                </div>
-                
-                <div id="mental-wellness-details">
-                    <h3>Mental Wellness Support</h3>
-                    <p>Taking care of your mental health is as important as physical health. Explore our resources to find support that works for you.</p>
-                    
-                    <div class="action-buttons">
-                        <button class="btn" onclick="showTherapists()">
-                            <i class="fas fa-search"></i> Find Therapists
-                        </button>
-                        <button class="btn btn-secondary" onclick="showCrisisResources()">
-                            <i class="fas fa-life-ring"></i> Crisis Resources
-                        </button>
-                    </div>
-                </div>
-            `;
-        }
-
-        function showTherapists() {
-            const details = document.getElementById('mental-wellness-details');
-            details.innerHTML = `
-                <h3>Available Therapists</h3>
-                <div class="specialist-list">
-                    <div class="specialist-card">
-                        <div class="specialist-name">Dr. Priya Mehta</div>
-                        <div>Clinical Psychologist • 10 years experience</div>
-                        <div class="specialist-contact">Specializes in anxiety and depression</div>
-                        <button class="btn btn-small" onclick="bookTherapist('Dr. Priya Mehta')" style="margin-top: 10px;">
-                            <i class="fas fa-calendar"></i> Book Session
-                        </button>
-                    </div>
-                    <div class="specialist-card">
-                        <div class="specialist-name">Dr. Rajesh Kumar</div>
-                        <div>Counselling Psychologist • 8 years experience</div>
-                        <div class="specialist-contact">Specializes in relationship issues</div>
-                        <button class="btn btn-small" onclick="bookTherapist('Dr. Rajesh Kumar')" style="margin-top: 10px;">
-                            <i class="fas fa-calendar"></i> Book Session
-                        </button>
-                    </div>
-                    <div class="specialist-card">
-                        <div class="specialist-name">Ms. Anjali Sharma</div>
-                        <div>Mental Health Counselor • 6 years experience</div>
-                        <div class="specialist-contact">Specializes in stress management</div>
-                        <button class="btn btn-small" onclick="bookTherapist('Ms. Anjali Sharma')" style="margin-top: 10px;">
-                            <i class="fas fa-calendar"></i> Book Session
-                        </button>
-                    </div>
-                </div>
-                <button class="btn btn-secondary" onclick="openMentalWellness()" style="margin-top: 15px;">
-                    <i class="fas fa-arrow-left"></i> Back to Wellness
-                </button>
-            `;
-        }
-
-        function bookTherapist(therapistName) {
-            alert(`Booking session with ${therapistName}\n\nYou will be redirected to the appointment scheduling system.`);
-        }
-
-        function showCrisisResources() {
-            const details = document.getElementById('mental-wellness-details');
-            details.innerHTML = `
-                <h3>Crisis Support Resources</h3>
-                <div class="payment-card">
-                    <h4>National Mental Health Helpline</h4>
-                    <p>Call: <strong>1800-599-0019</strong></p>
-                    <p>Available 24/7 for mental health emergencies</p>
-                </div>
-                <div class="payment-card">
-                    <h4>Crisis Text Line</h4>
-                    <p>Text: <strong>HOME to 741741</strong></p>
-                    <p>Free, 24/7 crisis counseling via text message</p>
-                </div>
-                <div class="payment-card">
-                    <h4>Local Emergency Services</h4>
-                    <p>Call: <strong>108</strong> or visit nearest hospital</p>
-                    <p>For immediate danger to self or others</p>
-                </div>
-                <button class="btn btn-secondary" onclick="openMentalWellness()" style="margin-top: 15px;">
-                    <i class="fas fa-arrow-left"></i> Back to Wellness
-                </button>
-            `;
-        }
-
-        // ==================== NIGHT CARE ====================
-        function openNightCare() {
-            openModal('night-care-modal');
-            
-            const content = document.getElementById('night-care-content');
-            content.innerHTML = `
-                <h3>24/7 Emergency & Urgent Care</h3>
-                <p>Our NightCare services ensure you have access to medical support even during nighttime hours.</p>
-                
-                <div class="action-buttons">
-                    <button class="btn btn-danger" onclick="callEmergency()">
-                        <i class="fas fa-phone"></i> Emergency Hotline
-                    </button>
-                    <button class="btn" onclick="findUrgentCare()">
-                        <i class="fas fa-map-marker-alt"></i> Find Urgent Care
-                    </button>
-                </div>
-                
-                <div class="payment-card">
-                    <h4>Telemedicine Consultations</h4>
-                    <p>Connect with a doctor online for urgent medical advice</p>
-                    <button class="btn btn-small" onclick="startTelemedicine()" style="margin-top: 10px;">
-                        <i class="fas fa-video"></i> Start Consultation
-                    </button>
-                </div>
-                
-                <div class="payment-card">
-                    <h4>Medication Delivery</h4>
-                    <p>Emergency medication delivery available 24/7</p>
-                    <button class="btn btn-small" onclick="openMedicineOrder()" style="margin-top: 10px;">
-                        <i class="fas fa-pills"></i> Order Now
-                    </button>
-                </div>
-                
-                <div class="payment-card">
-                    <h4>Symptom Checker</h4>
-                    <p>Use our AI-powered symptom checker for guidance</p>
-                    <button class="btn btn-small" onclick="openSymptomChecker()" style="margin-top: 10px;">
-                        <i class="fas fa-stethoscope"></i> Check Symptoms
-                    </button>
-                </div>
-            `;
-        }
-
-        function findUrgentCare() {
-            alert('Searching for nearby urgent care facilities...\n\nThis would show a map with locations in a real application.');
-        }
-
-        function startTelemedicine() {
-            alert('Connecting you with an available doctor...\n\nThis would initiate a video call in a real application.');
-        }
-
-        function openSymptomChecker() {
-            alert('Opening symptom checker...\n\nThis would guide you through a series of questions about your symptoms.');
-        }
-
-        // ==================== WELLNESS EXERCISES ====================
-        function startGuidedBreathing() {
-            openModal('mental-wellness-modal');
-            
-            const content = document.getElementById('mental-wellness-content');
-            content.innerHTML = `
-                <div class="exercise-container">
-                    <h3>Guided Breathing Exercise</h3>
-                    <p class="exercise-instructions">Follow the breathing pattern: Inhale for 4 seconds, hold for 7 seconds, exhale for 8 seconds.</p>
-                    
-                    <div class="breathing-circle" id="breathing-circle">
-                        Breathe In
-                    </div>
-                    
-                    <div class="exercise-controls">
-                        <button class="btn" id="start-breathing" onclick="startBreathingExercise()">
-                            <i class="fas fa-play"></i> Start
-                        </button>
-                        <button class="btn btn-secondary" onclick="stopBreathingExercise()">
-                            <i class="fas fa-stop"></i> Stop
-                        </button>
-                    </div>
-                    
-                    <button class="btn btn-secondary" onclick="openMentalWellness()" style="margin-top: 20px;">
-                        <i class="fas fa-arrow-left"></i> Back to Wellness
-                    </button>
-                </div>
-            `;
         }
 
         let breathingInterval;
@@ -1571,143 +1037,78 @@
             startButton.disabled = false;
         }
 
-        function startGroundingTechnique() {
-            openModal('mental-wellness-modal');
-            
-            const content = document.getElementById('mental-wellness-content');
-            content.innerHTML = `
-                <div class="exercise-container">
-                    <h3>Grounding Technique</h3>
-                    <p class="exercise-instructions">This exercise helps when you're feeling anxious or disconnected. Focus on your senses:</p>
-                    
-                    <div style="text-align: left; margin: 20px 0;">
-                        <h4>5-4-3-2-1 Grounding</h4>
-                        <p id="grounding-step">Look around and name <strong>5 things</strong> you can see</p>
-                        
-                        <div class="action-buttons" style="justify-content: center; margin-top: 20px;">
-                            <button class="btn" id="next-grounding" onclick="nextGroundingStep()">
-                                Next Step
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <button class="btn btn-secondary" onclick="openMentalWellness()" style="margin-top: 20px;">
-                        <i class="fas fa-arrow-left"></i> Back to Wellness
-                    </button>
-                </div>
-            `;
-            
-            groundingStep = 0;
+        function showTherapists() {
+            alert('Showing available therapists...');
         }
 
-        let groundingStep = 0;
-        const groundingSteps = [
-            "Look around and name <strong>5 things</strong> you can see",
-            "Focus on <strong>4 things</strong> you can touch",
-            "Listen for <strong>3 things</strong> you can hear",
-            "Notice <strong>2 things</strong> you can smell",
-            "Acknowledge <strong>1 thing</strong> you can taste",
-            "Great job! How do you feel now?"
-        ];
+        function showCrisisResources() {
+            alert('Displaying crisis resources...');
+        }
 
-        function nextGroundingStep() {
-            groundingStep++;
-            const stepElement = document.getElementById('grounding-step');
-            const nextButton = document.getElementById('next-grounding');
+        // ==================== NIGHT CARE ====================
+        function openNightCare() {
+            openModal('night-care-modal');
+        }
+
+        function findUrgentCare() {
+            alert('Searching for nearby urgent care facilities...');
+        }
+
+        function startTelemedicine() {
+            alert('Connecting you with an available doctor...');
+        }
+
+        // ==================== AUTHENTICATION ====================
+        function openSignup() {
+            openModal('signup-modal');
+        }
+
+        function openLogin() {
+            openModal('login-modal');
+        }
+
+        function signup() {
+            const name = document.getElementById('full-name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
             
-            if (groundingStep < groundingSteps.length) {
-                stepElement.innerHTML = groundingSteps[groundingStep];
-                
-                if (groundingStep === groundingSteps.length - 1) {
-                    nextButton.textContent = 'Finish';
-                    nextButton.onclick = function() {
-                        openMentalWellness();
-                    };
-                }
+            if (!name || !email || !password) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            
+            alert(`Account created successfully!\n\nWelcome to RuralMind Connect, ${name}!`);
+            closeModal('signup-modal');
+            
+            // Clear form
+            document.getElementById('full-name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('password').value = '';
+        }
+
+        function login() {
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            
+            if (!email || !password) {
+                alert('Please enter your email and password.');
+                return;
+            }
+            
+            alert('Login successful!');
+            closeModal('login-modal');
+            
+            // Clear form
+            document.getElementById('login-email').value = '';
+            document.getElementById('login-password').value = '';
+        }
+
+        // ==================== EMERGENCY FUNCTION ====================
+        function callEmergency() {
+            if (confirm('Call emergency services at 108?')) {
+                alert('Connecting to emergency services...');
             }
         }
-
-        function startQuickMeditation() {
-            openModal('mental-wellness-modal');
-            
-            const content = document.getElementById('mental-wellness-content');
-            content.innerHTML = `
-                <div class="exercise-container">
-                    <h3>Quick Meditation</h3>
-                    <p class="exercise-instructions">Find a comfortable position and focus on your breath for 5 minutes.</p>
-                    
-                    <div style="font-size: 3rem; margin: 20px 0;" id="meditation-timer">5:00</div>
-                    
-                    <div class="exercise-controls">
-                        <button class="btn" id="start-meditation" onclick="startMeditationTimer()">
-                            <i class="fas fa-play"></i> Start
-                        </button>
-                        <button class="btn btn-secondary" onclick="resetMeditationTimer()">
-                            <i class="fas fa-redo"></i> Reset
-                        </button>
-                    </div>
-                    
-                    <button class="btn btn-secondary" onclick="openMentalWellness()" style="margin-top: 20px;">
-                        <i class="fas fa-arrow-left"></i> Back to Wellness
-                    </button>
-                </div>
-            `;
-            
-            meditationTime = 300; // 5 minutes in seconds
-        }
-
-        let meditationTime = 300;
-        let meditationInterval;
-
-        function startMeditationTimer() {
-            const timerElement = document.getElementById('meditation-timer');
-            const startButton = document.getElementById('start-meditation');
-            
-            startButton.disabled = true;
-            
-            meditationInterval = setInterval(() => {
-                meditationTime--;
-                
-                const minutes = Math.floor(meditationTime / 60);
-                const seconds = meditationTime % 60;
-                
-                timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-                
-                if (meditationTime <= 0) {
-                    clearInterval(meditationInterval);
-                    timerElement.textContent = "Time's up!";
-                    startButton.disabled = false;
-                    alert('Meditation session complete! Well done.');
-                }
-            }, 1000);
-        }
-
-        function resetMeditationTimer() {
-            clearInterval(meditationInterval);
-            meditationTime = 300;
-            document.getElementById('meditation-timer').textContent = '5:00';
-            document.getElementById('start-meditation').disabled = false;
-        }
-
-        // ==================== EXISTING FUNCTIONS ====================
-        // All the existing functions from your original code remain the same
-        // ... (truncated for brevity) ...
-
-        // ==================== EVENT LISTENERS ====================
-        document.addEventListener('DOMContentLoaded', function() {
-            // All existing event listeners remain the same
-            // ... (truncated for brevity) ...
-            
-            // Add Enter key support for chat
-            document.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter' && document.getElementById('chat-input')) {
-                    const chatInput = document.getElementById('chat-input');
-                    if (document.activeElement === chatInput) {
-                        sendMessage();
-                    }
-                }
-            });
-        });
     </script>
 </body>
 </html>
