@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RuralMind Connect | Healthcare Platform</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #2c5aa0;
@@ -20,7 +21,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
@@ -34,6 +35,42 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+        }
+        
+        /* Login Page Styles */
+        #login-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .login-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+        
+        /* Main App Styles (Hidden Initially) */
+        #main-app {
+            display: none;
         }
         
         header {
@@ -212,6 +249,7 @@
         /* Form Styles */
         .form-group {
             margin-bottom: 15px;
+            text-align: left;
         }
         
         label {
@@ -421,6 +459,150 @@
             flex-wrap: wrap;
         }
 
+        /* Profile Section */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .appointment-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .appointment-card {
+            padding: 15px;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+
+        .appointment-status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .status-upcoming {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-completed {
+            background: #e0f2fe;
+            color: #075985;
+        }
+
+        .status-cancelled {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        /* Smart Health Card */
+        .health-card {
+            background: linear-gradient(135deg, #2c5aa0 0%, #4a90e2 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(44, 90, 160, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .health-card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(30deg);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-logo {
+            font-size: 1.5rem;
+        }
+
+        .card-type {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .card-number {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin: 15px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-details {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-holder, .card-expiry {
+            font-size: 0.9rem;
+        }
+
+        .card-label {
+            font-size: 0.7rem;
+            opacity: 0.7;
+            margin-bottom: 5px;
+        }
+
+        /* Medicine History */
+        .medicine-history {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .medicine-history-item {
+            padding: 15px;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .features-grid {
@@ -435,11 +617,54 @@
                 width: 100%;
                 justify-content: center;
             }
+            
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .card-details {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Login Page -->
+    <div id="login-page">
+        <div class="login-container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+            </div>
+            <h1>RuralMind Connect</h1>
+            <p class="tagline">Your trusted partner in rural healthcare</p>
+            
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%;">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </form>
+            
+            <p class="muted" style="margin-top: 15px;">
+                Don't have an account? 
+                <a href="#" onclick="showSignup()" style="color: var(--primary);">Sign up</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Application (Hidden Initially) -->
+    <div id="main-app" class="container">
         <!-- Header -->
         <header>
             <h1>RuralMind Connect</h1>
@@ -517,25 +742,26 @@
                     <p class="muted">Therapy and mental health resources</p>
                 </div>
                 
-                <div class="feature-card" onclick="openNightCare()">
+                <div class="feature-card" onclick="openProfile()">
                     <div class="feature-icon">
-                        <i class="fas fa-bed"></i>
+                        <i class="fas fa-user"></i>
                     </div>
-                    <h3 class="feature-title">NightCare</h3>
-                    <p class="muted">24/7 emergency support</p>
+                    <h3 class="feature-title">My Profile</h3>
+                    <p class="muted">View your health information and records</p>
                 </div>
             </div>
         </section>
 
         <!-- User Section -->
         <section>
-            <h2>Join RuralMind Connect</h2>
+            <h2>Your Account</h2>
+            <p>Signed in as <strong id="account-email"></strong></p>
             <div class="action-buttons">
-                <button class="btn" onclick="openSignup()">
-                    <i class="fas fa-user-plus"></i> Create Account
+                <button id="logout-btn" class="btn btn-secondary">
+                    <i class="fas fa-sign-out-alt"></i> Logout
                 </button>
-                <button class="btn btn-secondary" onclick="openLogin()">
-                    <i class="fas fa-sign-in-alt"></i> Login
+                <button class="btn" onclick="openProfile()">
+                    <i class="fas fa-user"></i> My Profile
                 </button>
             </div>
         </section>
@@ -750,32 +976,59 @@
         </div>
     </div>
 
-    <!-- Modal for Night Care -->
-    <div class="modal" id="night-care-modal">
+    <!-- Modal for Profile -->
+    <div class="modal" id="profile-modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">NightCare Services</h3>
-                <button class="close-modal" onclick="closeModal('night-care-modal')">&times;</button>
+                <h3 class="modal-title">My Health Profile</h3>
+                <button class="close-modal" onclick="closeModal('profile-modal')">&times;</button>
             </div>
-            <div id="night-care-content">
-                <h3>24/7 Emergency & Urgent Care</h3>
-                <p class="muted">Our NightCare services ensure you have access to medical support even during nighttime hours.</p>
-                
-                <div class="action-buttons">
-                    <button class="btn btn-danger" onclick="callEmergency()">
-                        <i class="fas fa-phone"></i> Emergency Hotline
-                    </button>
-                    <button class="btn" onclick="findUrgentCare()">
-                        <i class="fas fa-map-marker-alt"></i> Find Urgent Care
-                    </button>
+            <div id="profile-content">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-info">
+                        <h3 id="profile-name">User Name</h3>
+                        <p class="muted" id="profile-email">user@example.com</p>
+                        <p class="muted">Member since <span id="member-since">2024</span></p>
+                    </div>
                 </div>
-                
-                <div class="doctor-card" style="margin-top: 15px;">
-                    <div class="doctor-name">Telemedicine Consultations</div>
-                    <div class="muted">Connect with a doctor online for urgent medical advice</div>
-                    <button class="btn btn-small" onclick="startTelemedicine()" style="margin-top: 8px;">
-                        <i class="fas fa-video"></i> Start Consultation
-                    </button>
+
+                <!-- Smart Health Card -->
+                <div class="health-card">
+                    <div class="card-header">
+                        <div class="card-logo">
+                            <i class="fas fa-heartbeat"></i> RuralMind
+                        </div>
+                        <div class="card-type">Health Card</div>
+                    </div>
+                    <div class="card-number" id="health-card-number">4512 7890 1234 5678</div>
+                    <div class="card-details">
+                        <div>
+                            <div class="card-label">CARD HOLDER</div>
+                            <div class="card-holder" id="card-holder">USER NAME</div>
+                        </div>
+                        <div>
+                            <div class="card-label">VALID THRU</div>
+                            <div class="card-expiry" id="card-expiry">12/28</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Upcoming Appointments</h3>
+                <div class="appointment-list" id="upcoming-appointments">
+                    <!-- Will be populated dynamically -->
+                </div>
+
+                <h3>Appointment History</h3>
+                <div class="appointment-list" id="appointment-history">
+                    <!-- Will be populated dynamically -->
+                </div>
+
+                <h3>Medicine History</h3>
+                <div class="medicine-history" id="medicine-history">
+                    <!-- Will be populated dynamically -->
                 </div>
             </div>
         </div>
@@ -811,32 +1064,54 @@
         </div>
     </div>
 
-    <!-- Modal for Login -->
-    <div class="modal" id="login-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Login</h3>
-                <button class="close-modal" onclick="closeModal('login-modal')">&times;</button>
-            </div>
-            <div id="login-content">
-                <div class="form-group">
-                    <label for="login-email">Email Address</label>
-                    <input type="email" id="login-email">
-                </div>
-                
-                <div class="form-group">
-                    <label for="login-password">Password</label>
-                    <input type="password" id="login-password">
-                </div>
-                
-                <button class="btn" onclick="login()" style="width: 100%;">
-                    <i class="fas fa-sign-in-alt"></i> Login
-                </button>
-            </div>
-        </div>
-    </div>
-
     <script>
+        // ==================== AUTHENTICATION SYSTEM ====================
+        function loadUsers() {
+            try {
+                const raw = localStorage.getItem('rmc_users');
+                return raw ? JSON.parse(raw) : {};
+            } catch (e) {
+                return {};
+            }
+        }
+
+        function saveUsers(users) {
+            localStorage.setItem('rmc_users', JSON.stringify(users));
+        }
+
+        function getSession() {
+            try {
+                const raw = localStorage.getItem('rmc_session');
+                return raw ? JSON.parse(raw) : null;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        function setSession(email) {
+            localStorage.setItem('rmc_session', JSON.stringify({ email }));
+        }
+
+        function clearSession() {
+            localStorage.removeItem('rmc_session');
+        }
+
+        function updateAuthUI() {
+            const session = getSession();
+            const loginPage = document.getElementById('login-page');
+            const mainApp = document.getElementById('main-app');
+            const accountEmail = document.getElementById('account-email');
+
+            if (session && session.email) {
+                loginPage.style.display = 'none';
+                mainApp.style.display = 'block';
+                accountEmail.textContent = session.email;
+            } else {
+                loginPage.style.display = 'flex';
+                mainApp.style.display = 'none';
+            }
+        }
+
         // ==================== MODAL MANAGEMENT ====================
         function openModal(modalId) {
             document.getElementById(modalId).style.display = 'flex';
@@ -859,6 +1134,183 @@
             });
         }
 
+        // ==================== PROFILE MANAGEMENT ====================
+        function openProfile() {
+            const session = getSession();
+            if (!session) return;
+            
+            const users = loadUsers();
+            const user = users[session.email];
+            
+            // Update profile information
+            document.getElementById('profile-name').textContent = user.name;
+            document.getElementById('profile-email').textContent = session.email;
+            document.getElementById('member-since').textContent = new Date(user.createdAt).getFullYear();
+            document.getElementById('card-holder').textContent = user.name.toUpperCase();
+            
+            // Generate health card number if not exists
+            if (!user.healthCardNumber) {
+                user.healthCardNumber = generateHealthCardNumber();
+                saveUsers(users);
+            }
+            document.getElementById('health-card-number').textContent = user.healthCardNumber;
+            
+            // Load appointments
+            loadAppointments(user);
+            
+            // Load medicine history
+            loadMedicineHistory(user);
+            
+            openModal('profile-modal');
+        }
+
+        function generateHealthCardNumber() {
+            // Generate a random 16-digit card number
+            let number = '';
+            for (let i = 0; i < 16; i++) {
+                number += Math.floor(Math.random() * 10);
+                if ((i + 1) % 4 === 0 && i < 15) {
+                    number += ' ';
+                }
+            }
+            return number;
+        }
+
+        function loadAppointments(user) {
+            const upcomingContainer = document.getElementById('upcoming-appointments');
+            const historyContainer = document.getElementById('appointment-history');
+            
+            // Clear existing content
+            upcomingContainer.innerHTML = '';
+            historyContainer.innerHTML = '';
+            
+            // Sample data - in a real app, this would come from a database
+            const appointments = user.appointments || [
+                {
+                    id: 1,
+                    doctor: 'Dr. Aren Sharma',
+                    date: '2024-02-15',
+                    time: '10:00 AM',
+                    status: 'upcoming',
+                    type: 'General Checkup'
+                },
+                {
+                    id: 2,
+                    doctor: 'Dr. Priya Mehta',
+                    date: '2024-02-20',
+                    time: '2:30 PM',
+                    status: 'upcoming',
+                    type: 'Follow-up'
+                },
+                {
+                    id: 3,
+                    doctor: 'Dr. R. Singh',
+                    date: '2024-01-10',
+                    time: '11:15 AM',
+                    status: 'completed',
+                    type: 'Cardiology Consultation'
+                }
+            ];
+            
+            // Separate upcoming and past appointments
+            const upcoming = appointments.filter(a => a.status === 'upcoming');
+            const history = appointments.filter(a => a.status === 'completed' || a.status === 'cancelled');
+            
+            // Display upcoming appointments
+            if (upcoming.length === 0) {
+                upcomingContainer.innerHTML = '<p class="muted">No upcoming appointments</p>';
+            } else {
+                upcoming.forEach(appointment => {
+                    const appointmentElement = document.createElement('div');
+                    appointmentElement.className = 'appointment-card';
+                    appointmentElement.innerHTML = `
+                        <div class="doctor-name">${appointment.doctor}</div>
+                        <div class="muted">${appointment.type}</div>
+                        <div>${appointment.date} at ${appointment.time}</div>
+                        <span class="appointment-status status-upcoming">Upcoming</span>
+                    `;
+                    upcomingContainer.appendChild(appointmentElement);
+                });
+            }
+            
+            // Display appointment history
+            if (history.length === 0) {
+                historyContainer.innerHTML = '<p class="muted">No appointment history</p>';
+            } else {
+                history.forEach(appointment => {
+                    const statusClass = appointment.status === 'completed' ? 'status-completed' : 'status-cancelled';
+                    const statusText = appointment.status === 'completed' ? 'Completed' : 'Cancelled';
+                    
+                    const appointmentElement = document.createElement('div');
+                    appointmentElement.className = 'appointment-card';
+                    appointmentElement.innerHTML = `
+                        <div class="doctor-name">${appointment.doctor}</div>
+                        <div class="muted">${appointment.type}</div>
+                        <div>${appointment.date} at ${appointment.time}</div>
+                        <span class="appointment-status ${statusClass}">${statusText}</span>
+                    `;
+                    historyContainer.appendChild(appointmentElement);
+                });
+            }
+        }
+
+        function loadMedicineHistory(user) {
+            const container = document.getElementById('medicine-history');
+            
+            // Clear existing content
+            container.innerHTML = '';
+            
+            // Sample data - in a real app, this would come from a database
+            const medicineHistory = user.medicineHistory || [
+                {
+                    id: 1,
+                    name: 'Paracetamol 500mg',
+                    quantity: 2,
+                    date: '2024-01-15',
+                    status: 'delivered'
+                },
+                {
+                    id: 2,
+                    name: 'Amoxicillin 250mg',
+                    quantity: 1,
+                    date: '2024-01-20',
+                    status: 'delivered'
+                },
+                {
+                    id: 3,
+                    name: 'Cetirizine 10mg',
+                    quantity: 1,
+                    date: '2024-02-05',
+                    status: 'processing'
+                }
+            ];
+            
+            if (medicineHistory.length === 0) {
+                container.innerHTML = '<p class="muted">No medicine orders yet</p>';
+            } else {
+                medicineHistory.forEach(medicine => {
+                    const statusText = medicine.status === 'delivered' ? 'Delivered' : 'Processing';
+                    const statusClass = medicine.status === 'delivered' ? 'status-completed' : 'status-upcoming';
+                    
+                    const medicineElement = document.createElement('div');
+                    medicineElement.className = 'medicine-history-item';
+                    medicineElement.innerHTML = `
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <strong>${medicine.name}</strong>
+                                <div class="muted">Quantity: ${medicine.quantity}</div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div>${medicine.date}</div>
+                                <span class="appointment-status ${statusClass}">${statusText}</span>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(medicineElement);
+                });
+            }
+        }
+
         // ==================== DOCTOR BOOKING ====================
         function openDoctorBooking() {
             openModal('doctor-booking-modal');
@@ -874,6 +1326,30 @@
                 alert('Please select a date for your appointment.');
                 return;
             }
+            
+            // Add appointment to user's profile
+            const session = getSession();
+            if (session) {
+                const users = loadUsers();
+                const user = users[session.email];
+                
+                if (!user.appointments) {
+                    user.appointments = [];
+                }
+                
+                // Add new appointment
+                user.appointments.push({
+                    id: user.appointments.length + 1,
+                    doctor: 'Dr. Selected',
+                    date: date,
+                    time: '10:00 AM', // In a real app, this would be selected by user
+                    status: 'upcoming',
+                    type: 'Consultation'
+                });
+                
+                saveUsers(users);
+            }
+            
             alert(`Appointment confirmed!\n\nYou will receive a confirmation message shortly.`);
             closeModal('doctor-booking-modal');
         }
@@ -900,18 +1376,46 @@
         function placeOrder() {
             let hasItems = false;
             const medicines = ['paracetamol', 'amoxicillin', 'cetirizine'];
+            const orderItems = [];
             
             for (const medicine of medicines) {
                 const quantity = parseInt(document.getElementById(`${medicine}-quantity`).textContent);
                 if (quantity > 0) {
                     hasItems = true;
-                    break;
+                    orderItems.push({
+                        name: getMedicineName(medicine),
+                        quantity: quantity
+                    });
                 }
             }
             
             if (!hasItems) {
                 alert('Please add at least one medicine to your order.');
                 return;
+            }
+            
+            // Add order to user's medicine history
+            const session = getSession();
+            if (session) {
+                const users = loadUsers();
+                const user = users[session.email];
+                
+                if (!user.medicineHistory) {
+                    user.medicineHistory = [];
+                }
+                
+                // Add new order
+                orderItems.forEach(item => {
+                    user.medicineHistory.push({
+                        id: user.medicineHistory.length + 1,
+                        name: item.name,
+                        quantity: item.quantity,
+                        date: new Date().toISOString().split('T')[0],
+                        status: 'processing'
+                    });
+                });
+                
+                saveUsers(users);
             }
             
             alert(`Order placed successfully!\n\nMedicines will be delivered within 24 hours.`);
@@ -921,6 +1425,15 @@
             medicines.forEach(medicine => {
                 document.getElementById(`${medicine}-quantity`).textContent = '0';
             });
+        }
+
+        function getMedicineName(medicineId) {
+            const names = {
+                'paracetamol': 'Paracetamol 500mg',
+                'amoxicillin': 'Amoxicillin 250mg',
+                'cetirizine': 'Cetirizine 10mg'
+            };
+            return names[medicineId] || medicineId;
         }
 
         // ==================== HEALTH LIBRARY ====================
@@ -1045,26 +1558,9 @@
             alert('Displaying crisis resources...');
         }
 
-        // ==================== NIGHT CARE ====================
-        function openNightCare() {
-            openModal('night-care-modal');
-        }
-
-        function findUrgentCare() {
-            alert('Searching for nearby urgent care facilities...');
-        }
-
-        function startTelemedicine() {
-            alert('Connecting you with an available doctor...');
-        }
-
         // ==================== AUTHENTICATION ====================
-        function openSignup() {
+        function showSignup() {
             openModal('signup-modal');
-        }
-
-        function openLogin() {
-            openModal('login-modal');
         }
 
         function signup() {
@@ -1077,30 +1573,28 @@
                 return;
             }
             
+            const users = loadUsers();
+            if (users[email]) {
+                alert('An account with this email already exists. Please login.');
+                return;
+            }
+            
+            users[email] = {
+                name,
+                password, // In a real app, this would be hashed
+                createdAt: new Date().toISOString()
+            };
+            saveUsers(users);
+            setSession(email);
+            
             alert(`Account created successfully!\n\nWelcome to RuralMind Connect, ${name}!`);
             closeModal('signup-modal');
+            updateAuthUI();
             
             // Clear form
             document.getElementById('full-name').value = '';
             document.getElementById('email').value = '';
             document.getElementById('password').value = '';
-        }
-
-        function login() {
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
-            
-            if (!email || !password) {
-                alert('Please enter your email and password.');
-                return;
-            }
-            
-            alert('Login successful!');
-            closeModal('login-modal');
-            
-            // Clear form
-            document.getElementById('login-email').value = '';
-            document.getElementById('login-password').value = '';
         }
 
         // ==================== EMERGENCY FUNCTION ====================
@@ -1109,6 +1603,50 @@
                 alert('Connecting to emergency services...');
             }
         }
+
+        // ==================== EVENT LISTENERS ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize authentication UI
+            updateAuthUI();
+
+            // Login Form
+            document.getElementById('login-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('login-email').value.trim().toLowerCase();
+                const password = document.getElementById('login-password').value;
+
+                const users = loadUsers();
+                const found = users[email];
+                if (!found) {
+                    alert('No account found for this email. Please sign up.');
+                    return;
+                }
+                if (found.password !== password) {
+                    alert('Incorrect password.');
+                    return;
+                }
+                setSession(email);
+                alert('Logged in successfully.');
+                this.reset();
+                updateAuthUI();
+            });
+
+            // Logout
+            document.getElementById('logout-btn').addEventListener('click', function() {
+                clearSession();
+                updateAuthUI();
+            });
+
+            // Add Enter key support for chat
+            document.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && document.getElementById('chat-input')) {
+                    const chatInput = document.getElementById('chat-input');
+                    if (document.activeElement === chatInput) {
+                        sendMessage();
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
